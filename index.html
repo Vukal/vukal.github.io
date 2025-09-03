@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aleksandar Vuckovic – Portfolio</title>
+  <meta name="description" content="Portfolio of Aleksandar Vuckovic – final‑year CS student. Projects, skills, and contact links." />
+  <style>
+    :root {
+      --bg: #0f1221;
+      --card: #141832;
+      --text: #e8ebf7;
+      --muted: #a7b0d6;
+      --accent: #ffd166;
+      --accent-2: #72efdd;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); background: radial-gradient(1000px 500px at 10% -10%, #1b2150, transparent), var(--bg);
+    }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
+    header { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; justify-content: space-between; margin-bottom: 28px; }
+    .name { font-size: 28px; font-weight: 800; letter-spacing: 0.3px; }
+    .tag { color: var(--muted); margin-top: 6px; font-size: 16px; }
+
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; background: var(--card); border: 1px solid #2a2f57; color: var(--text);
+      transition: transform .08s ease, box-shadow .18s ease; box-shadow: 0 6px 20px rgba(0,0,0,.25);
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.35); text-decoration: none; }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), #ff8fab); color: #111; border-color: transparent; }
+
+    section { margin-top: 28px; }
+    h2 { font-size: 18px; letter-spacing: .4px; color: var(--accent); text-transform: uppercase; margin: 8px 0 14px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .card { background: var(--card); border: 1px solid #2a2f57; border-radius: 16px; padding: 16px; }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .pill { display: inline-block; padding: 6px 10px; border-radius: 999px; background: #1d2250; border: 1px solid #2a2f57; color: var(--muted); font-size: 12px; margin: 4px 6px 0 0; }
+
+    .list { display: grid; gap: 6px; color: var(--muted); }
+    footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="name">Aleksandar Vuckovic</div>
+        <div class="tag">Final‑year CS student • Full‑stack & OOP • Unity/C#</div>
+      </div>
+      <div class="btns">
+        <a class="btn" href="https://github.com/vukal" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/REPLACE-YOUR-LINK" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn primary" href="/cv/Aleksandar_Vuckovic_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>WorkoutLogger</h3>
+          <p>Full‑stack workout logging app with authenticated users, REST APIs, and MongoDB data models.</p>
+          <div>
+            <span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">MongoDB</span><span class="pill">Mongoose</span><span class="pill">Vue.js</span>
+          </div>
+          <p class="list">
+            <span>Designed RESTful endpoints for CRUD on sessions, exercises, and achievements.</span>
+            <span>Implemented role‑based auth and JWT‑protected routes.</span>
+            <span>Documented setup & usage in README; unit tests for server routes.</span>
+          </p>
+          <p><a href="https://github.com/vukal/REPO-WORKOUTLOGGER" target="_blank" rel="noopener">Source</a></p>
+        </article>
+
+        <article class="card">
+          <h3>Trigon Vale (Unity ARPG)</h3>
+          <p>2.5D top‑down action‑RPG prototype with exploration, enemy waves, and boss fight.</p>
+          <div>
+            <span class="pill">Unity</span><span class="pill">C#</span><span class="pill">OOP</span>
+          </div>
+          <p class="list">
+            <span>Modular component architecture for combat, progression, and environment systems.</span>
+            <span>Core loop: explore → skirmishes → upgrade → boss; scalable difficulty.</span>
+            <span>Accessibility: color‑blind mode, subtitle/visual cues, configurable UI.</span>
+          </p>
+          <p>
+            <a href="https://github.com/vukal/REPO-TRIGON-VALE" target="_blank" rel="noopener">Source</a>
+            • <a href="https://youtu.be/REPLACE-DEMO" target="_blank" rel="noopener">Demo video</a>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Programming</h3>
+          <p>Java, JavaScript, C#</p>
+        </div>
+        <div class="card">
+          <h3>Web</h3>
+          <p>Node.js, Express.js, Vue.js, REST APIs</p>
+        </div>
+        <div class="card">
+          <h3>Databases</h3>
+          <p>MongoDB, MySQL, Neo4j</p>
+        </div>
+        <div class="card">
+          <h3>Tools</h3>
+          <p>Git, Postman, Docker</p>
+        </div>
+        <div class="card">
+          <h3>Game Dev</h3>
+          <p>Unity, C# (OOP design)</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Aleksandar Vuckovic — Built with GitHub Pages
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
