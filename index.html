@@ -1,170 +1,761 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aleksandar Vuckovic – Portfolio</title>
-  <meta name="description" content="Portfolio of Aleksandar Vuckovic. Projects, skills, and contact links." />
+
+  <title>Aleksandar Vuckovic – Software Developer</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Aleksandar Vuckovic, a software developer based in Gothenburg. Explore projects, technical skills, GitHub, and contact information."
+  />
+
   <style>
     :root {
       --bg: #0f1221;
       --card: #141832;
+      --card-hover: #171c3b;
       --text: #e8ebf7;
       --muted: #a7b0d6;
       --accent: #ffd166;
       --accent-2: #72efdd;
+      --border: #2a2f57;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text); background: radial-gradient(1000px 500px at 10% -10%, #1b2150, transparent), var(--bg);
+      margin: 0;
+      font-family:
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+      background:
+        radial-gradient(1000px 500px at 10% -10%, #1b2150, transparent),
+        var(--bg);
+
+      line-height: 1.6;
     }
-    a { color: var(--accent-2); text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
-    header { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; justify-content: space-between; margin-bottom: 28px; }
-    .name { font-size: 28px; font-weight: 800; letter-spacing: 0.3px; }
-    .tag { color: var(--muted); margin-top: 6px; font-size: 16px; }
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
 
-    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    a:hover {
+      text-decoration: none;
+    }
+
+    .wrap {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+
+    .hero {
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      padding: 55px 0 70px;
+    }
+
+    .hero-content {
+      max-width: 680px;
+    }
+
+    .name {
+      margin: 0;
+      font-size: clamp(38px, 6vw, 58px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
+
+    .role {
+      margin-top: 10px;
+      font-size: 23px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .intro {
+      margin: 22px 0 18px;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .tech-line {
+      margin: 0 0 26px;
+      color: var(--accent-2);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; background: var(--card); border: 1px solid #2a2f57; color: var(--text);
-      transition: transform .08s ease, box-shadow .18s ease; box-shadow: 0 6px 20px rgba(0,0,0,.25);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      padding: 10px 15px;
+      border-radius: 11px;
+
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+
+      font-size: 14px;
+      font-weight: 600;
+
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+      transition:
+        transform 0.12s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
     }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.35); text-decoration: none; }
-    .btn.primary { background: linear-gradient(135deg, var(--accent), #ff8fab); color: #111; border-color: transparent; }
 
-    section { margin-top: 28px; }
-    h2 { font-size: 18px; letter-spacing: .4px; color: var(--accent); text-transform: uppercase; margin: 8px 0 14px; }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+      border-color: #414976;
+    }
 
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .card { background: var(--card); border: 1px solid #2a2f57; border-radius: 16px; padding: 16px; }
-    .card h3 { margin: 0 0 8px; font-size: 18px; }
-    .pill { display: inline-block; padding: 6px 10px; border-radius: 999px; background: #1d2250; border: 1px solid #2a2f57; color: var(--muted); font-size: 12px; margin: 4px 6px 0 0; }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), #ff8fab);
+      color: #111;
+      border-color: transparent;
+    }
 
-    .list { display: grid; gap: 6px; color: var(--muted); }
-    footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+    .hero-photo-wrapper {
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .hero-photo {
+      width: 210px;
+      height: 210px;
+      object-fit: cover;
+      object-position: center;
+
+      border-radius: 50%;
+      border: 4px solid var(--card);
+
+      box-shadow:
+        0 0 0 2px var(--border),
+        0 20px 45px rgba(0, 0, 0, 0.4);
+    }
+
+    /* -------------------------
+       SECTIONS
+    ------------------------- */
+
+    section {
+      margin-top: 45px;
+      scroll-margin-top: 30px;
+    }
+
+    h2 {
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin: 8px 0 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+
+      transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #3c4472;
+      background: var(--card-hover);
+    }
+
+    .card h3 {
+      margin: 0 0 4px;
+      font-size: 19px;
+    }
+
+    .card-subtitle {
+      margin: 0 0 12px;
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .pills {
+      margin: 4px 0 14px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 999px;
+
+      background: #1d2250;
+      border: 1px solid var(--border);
+
+      color: var(--muted);
+      font-size: 12px;
+
+      margin: 4px 4px 0 0;
+    }
+
+    .list {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      margin: 4px 0 18px;
+    }
+
+    .list span {
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .list span::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .project-link {
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    .source-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      padding: 8px 12px;
+      border-radius: 9px;
+
+      border: 1px solid var(--border);
+      background: #1a1f43;
+
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+
+      transition:
+        background 0.15s ease,
+        transform 0.15s ease;
+    }
+
+    .source-btn:hover {
+      background: #222852;
+      transform: translateY(-1px);
+    }
+
+    /* -------------------------
+       SKILLS
+    ------------------------- */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .skill-card h3 {
+      margin: 0 0 10px;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .skill-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* -------------------------
+       CONTACT
+    ------------------------- */
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .contact-card h3 {
+      margin-top: 0;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* -------------------------
+       MOBILE
+    ------------------------- */
+
+    @media (max-width: 720px) {
+      .wrap {
+        padding: 24px 18px 48px;
+      }
+
+      .hero {
+        min-height: auto;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 30px;
+        padding: 30px 0 45px;
+      }
+
+      .hero-photo {
+        width: 150px;
+        height: 150px;
+      }
+
+      .name {
+        font-size: 40px;
+      }
+
+      .role {
+        font-size: 20px;
+      }
+
+      .intro {
+        font-size: 16px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <div class="name">Aleksandar Vuckovic</div>
-        <div class="tag"> CS • Software developer </div>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <header class="hero">
+
+      <div class="hero-content">
+
+        <h1 class="name">Aleksandar Vuckovic</h1>
+
+        <div class="role">Software Developer</div>
+
+        <p class="intro">
+          Computer Science graduate based in Gothenburg with a focus on
+          backend and full-stack development. I enjoy building practical
+          software, designing clean APIs, and turning complex requirements
+          into maintainable solutions.
+        </p>
+
+        <p class="tech-line">
+          Java · Spring Boot · JavaScript/TypeScript · Node.js · React
+        </p>
+
+        <div class="btns">
+          <a class="btn primary" href="#projects">
+            View Projects
+          </a>
+
+          <a
+            class="btn"
+            href="https://github.com/vukal"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+
+          <a
+            class="btn"
+            href="https://www.linkedin.com/in/aleksandar-vuckovic-5348aa113/"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            class="btn"
+            href="/cv/CV.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            View CV
+          </a>
+        </div>
+
       </div>
-      <div class="btns">
-        <a class="btn" href="https://github.com/vukal" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/aleksandar-vuckovic-5348aa113/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn primary" href="/cv/CV.pdf" target="_blank" rel="noopener">Read full CV here</a>
+
+      <div class="hero-photo-wrapper">
+        <img
+          class="hero-photo"
+          src="/images/profilePic.jpg"
+          alt="Aleksandar Vuckovic"
+        />
       </div>
+
     </header>
 
-<section>
-  <h2>Projects</h2>
-  <div class="cards">
-<article class="card">
-  <h3>AquaSvea Simulation Tool (Bachelor Thesis)</h3>
-  <p>
-    Interactive desktop application for wastewater treatment simulation, developed in collaboration with AquaSvea AB. Transformed Excel-based engineering models into a modular Java application with configurable simulation logic, persistence, and reporting capabilities.
-  </p>
-  <div>
-    <span class="pill">Java</span>
-    <span class="pill">JavaFX</span>
-    <span class="pill">YAML</span>
-    <span class="pill">JSON</span>
-    <span class="pill">Thymeleaf</span>
-    <span class="pill">PDF Export</span>
-    <span class="pill">OOP</span>
-  </div>
-  <p class="list">
-    <span>Designed a modular simulation architecture separating input handling, calculations, validation, and result presentation.</span>
-    <span>Built an interactive multi-step wizard for configuring wastewater treatment processes and simulation parameters.</span>
-    <span>Implemented dynamic validation with visual feedback based on engineering constraints.</span>
-    <span>Developed a YAML-driven configuration system allowing domain experts to add and modify calculations without changing source code.</span>
-    <span>Added JSON persistence for saving and loading simulation runs, enabling reproducibility and comparison of results.</span>
-    <span>Generated professional PDF reports using Thymeleaf and OpenHTMLToPDF.</span>
-  </p>
-  <p>
-    <a href="https://github.com/vukal/REPO-AQUASVEA" target="_blank" rel="noopener">Source</a>
-  </p>
-</article>
 
+    <!-- PROJECTS -->
+    <section id="projects">
 
-    <article class="card">
-      <h3>WorkoutLogger</h3>
-      <p>Full-stack workout logging app with authenticated users, REST APIs, and MongoDB data models.</p>
-      <div>
-        <span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">MongoDB</span><span class="pill">Mongoose</span><span class="pill">Vue.js</span>
-      </div>
-      <p class="list">
-        <span>Designed RESTful endpoints for CRUD on sessions, exercises, and achievements.</span>
-        <span>Implemented role-based authentication.</span>
-        <span>Documented setup & usage in README; unit tests for server routes.</span>
-        <span>Deployed via Heroku using GitLab CI/CD pipeline.</span>
-      </p>
-      <p><a href="https://github.com/Vukal/WorkoutLogger" target="_blank" rel="noopener">Source</a></p>
-    </article>
+      <h2>Featured Projects</h2>
 
-    <article class="card">
-      <h3>Trigon Vale (Unity ARPG)</h3>
-      <p>2.5D action-RPG prototype with exploration, enemies, and boss fight.</p>
-      <div>
-        <span class="pill">Unity</span><span class="pill">C#</span><span class="pill">OOP</span>
-      </div>
-      <p class="list">
-        <span>Modular component architecture for combat, progression, and environment systems.</span>
-        <span>Core loop: explore → skirmishes → boss; scalable difficulty.</span>
-        <span>Accessibility: color-blind mode, subtitle/visual cues, configurable UI.</span>
-      </p>
-      <p>
-        <a href="https://github.com/vukal/REPO-TRIGON-VALE" target="_blank" rel="noopener">Source</a>
-      </p>
-    </article>
-  </div>
-</section>
-
-    <section>
-      <h2>Skills</h2>
       <div class="cards">
-        <div class="card">
-          <h3>Programming</h3>
-          <h4>Proficient:</h4>
-          <p>Java, JavaScript, TypeScript, C#</p>
-          <h4>Intermediate:</h4>
-          <p>Python</p>
-          <h4>Familiar:</h4>
-          <p>Haskell, Erlang, C, C++</p>
-        </div>
-        <div class="card">
-          <h3>Web</h3>
-          <h4>Proficient:</h4>
-          <p>Node.js, Express.js, Vue.js, REST APIs, HTML, CSS</p>
-          <h4>Intermediate:</h4>
-          <p>React, Spring boot</p>
-        </div>
-        <div class="card">
-          <h3>Databases</h3>
-          <p>MongoDB, MySQL, Neo4j, PostgreSQL, GraphDB</p>
-        </div>
-        <div class="card">
-          <h3>Tools</h3>
-          <p>Git, Postman, Docker, JUnit</p>
-          <h4>DevOps</h4>
-          <p>CI/CD (Gitlab), Docker Compose, Cloud Deployment(Heroku, AWS), Containerization, Monitoring Basics</p>
-        </div>
-        <div class="card">
-          <h3>Game Dev</h3>
-          <p>Unity, C# (OOP design)</p>
-        </div>
+
+        <!-- AQUASVEA -->
+        <article class="card">
+
+          <h3>AquaSvea Simulation Tool</h3>
+
+          <p class="card-subtitle">
+            Bachelor Thesis · AquaSvea AB
+          </p>
+
+          <p>
+            Desktop simulation application for wastewater engineering,
+            transforming Excel-based engineering models into a configurable
+            and modular Java application.
+          </p>
+
+          <div class="pills">
+            <span class="pill">Java</span>
+            <span class="pill">JavaFX</span>
+            <span class="pill">YAML</span>
+            <span class="pill">JSON</span>
+            <span class="pill">Thymeleaf</span>
+          </div>
+
+          <div class="list">
+            <span>
+              Designed a modular architecture separating simulation logic,
+              validation, persistence, and presentation.
+            </span>
+
+            <span>
+              Created a YAML-driven configuration system allowing calculations
+              to be modified without changing application source code.
+            </span>
+
+            <span>
+              Implemented simulation persistence and automatic PDF report
+              generation.
+            </span>
+          </div>
+
+          <div class="project-link">
+            <a
+              class="source-btn"
+              href="https://github.com/vukal/REPO-AQUASVEA"
+              target="_blank"
+              rel="noopener"
+            >
+              View on GitHub →
+            </a>
+          </div>
+
+        </article>
+
+
+        <!-- WORKOUT LOGGER -->
+        <article class="card">
+
+          <h3>WorkoutLogger</h3>
+
+          <p class="card-subtitle">
+            Full-Stack Web Application
+          </p>
+
+          <p>
+            Full-stack workout logging application with authenticated users,
+            REST APIs, workout tracking, and MongoDB persistence.
+          </p>
+
+          <div class="pills">
+            <span class="pill">Node.js</span>
+            <span class="pill">Express.js</span>
+            <span class="pill">MongoDB</span>
+            <span class="pill">Vue.js</span>
+          </div>
+
+          <div class="list">
+            <span>
+              Designed RESTful APIs for workout sessions, exercises,
+              achievements, and user data.
+            </span>
+
+            <span>
+              Implemented authentication and role-based authorization.
+            </span>
+
+            <span>
+              Deployed using Heroku with an automated GitLab CI/CD pipeline.
+            </span>
+          </div>
+
+          <div class="project-link">
+            <a
+              class="source-btn"
+              href="https://github.com/Vukal/WorkoutLogger"
+              target="_blank"
+              rel="noopener"
+            >
+              View on GitHub →
+            </a>
+          </div>
+
+        </article>
+
+
+        <!-- TRIGON VALE -->
+        <article class="card">
+
+          <h3>Trigon Vale</h3>
+
+          <p class="card-subtitle">
+            Unity Action RPG
+          </p>
+
+          <p>
+            2.5D action-RPG prototype featuring exploration, combat,
+            progression systems, enemies, and a boss encounter.
+          </p>
+
+          <div class="pills">
+            <span class="pill">Unity</span>
+            <span class="pill">C#</span>
+            <span class="pill">OOP</span>
+          </div>
+
+          <div class="list">
+            <span>
+              Built modular components for combat, progression, enemies,
+              and environmental systems.
+            </span>
+
+            <span>
+              Developed the core exploration, combat, and boss gameplay loop.
+            </span>
+
+            <span>
+              Added accessibility features including color-blind support,
+              visual cues, and configurable UI.
+            </span>
+          </div>
+
+          <div class="project-link">
+            <a
+              class="source-btn"
+              href="https://github.com/vukal/REPO-TRIGON-VALE"
+              target="_blank"
+              rel="noopener"
+            >
+              View on GitHub →
+            </a>
+          </div>
+
+        </article>
+
       </div>
     </section>
 
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+      <h2>Skills</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <p>
+            Java · JavaScript · TypeScript · C# · Python
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Backend</h3>
+          <p>
+            Spring Boot · Node.js · Express.js · REST APIs
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <p>
+            React · Vue.js · HTML · CSS
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Data</h3>
+          <p>
+            PostgreSQL · MongoDB · MySQL · Neo4j · GraphDB
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Tools & DevOps</h3>
+          <p>
+            Git · Docker · Docker Compose · GitLab CI/CD · Postman · JUnit · AWS
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+      <h2>Contact</h2>
+
+      <div class="contact-card">
+
+        <h3>Let's connect</h3>
+
+        <p>
+          I'm interested in software development opportunities where I can
+          contribute, continue learning, and grow as a developer.
+        </p>
+
+        <div class="btns">
+
+          <a
+            class="btn"
+            href="https://www.linkedin.com/in/aleksandar-vuckovic-5348aa113/"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            class="btn"
+            href="https://github.com/vukal"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+
+          <a
+            class="btn primary"
+            href="/cv/CV.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            View CV
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
     <footer>
-      © <span id="y"></span> Aleksandar Vuckovic — Built with GitHub Pages
+      © <span id="y"></span> Aleksandar Vuckovic · Built with GitHub Pages
     </footer>
-  </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  </main>
+
+
+  <script>
+    document.getElementById("y").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
+```
